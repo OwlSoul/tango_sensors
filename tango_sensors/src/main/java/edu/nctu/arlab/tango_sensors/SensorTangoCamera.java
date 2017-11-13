@@ -579,25 +579,38 @@ class SensorTangoCamera {
         nodeStarted = true;
     }
 
-    void sendData(){
+    void sendData() {
         if (!nodeStarted) return;
-        if ( (sleep==0) || ( (sleep>0) && (canSend.get() )))  {
-            if (sleep > 0) canSend.set(false);
 
-            new Thread(new DataSender2()).start();
-
-            changed.set(false);
-
+        if ((sleep == 0) || ((sleep > 0) && (canSend.get()))) {
             if (sleep > 0) {
-                int iSleep = (sleep < minSleep) ? minSleep : sleep;
-                // Setting delay after sleep
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        canSend.set(true);
-                    }
-                }, iSleep);
+                if (canSend.get()) {
+                    new Thread(new DataSender2()).start();
+                    canSend.set(false);
+
+                    // Setting delay after sleep
+                    // Handlers are crashing the app for some wild reason now, weird.
+                    // Just creating a handler here will crash an app.
+                    //Handler handler = new Handler();
+
+                    // New workaround.
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            int iSleep = (sleep < minSleep) ? minSleep : sleep;
+                            try {
+                                Thread.sleep(iSleep);
+                            } catch (Exception e) {
+                                Log.e(TAG,"Exception",e);
+                            }
+                            canSend.set(true);
+                        }
+                    }).start();
+                } else {
+                    new Thread(new DataSender2()).start();
+                }
+
+                changed.set(false);
             }
         }
     }
