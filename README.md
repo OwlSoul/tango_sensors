@@ -29,7 +29,9 @@ Known bugs and limitations:
 - Avoid low battery level (network operations will become slow and buggy), it's adviseable that if you use this app on your 
   robot, you power Yellowstone tablet off somehow with at least 2 AMPS of power.
   
-It is recommended to use apk file provided: https://github.com/YuryXW/tango_sensors/blob/master/release/tango_sensors-debug.apk?raw=true
+It is recommended to use apk file provided: 
+
+https://github.com/YuryXW/tango_sensors/blob/master/release/tango_sensors-debug.apk?raw=true
 
 In case you want to assemble app by yourselves, go on a good and active weekend first
 to recharge your batteries. Creating ROS apps for Android may take all your sanity in one day.
