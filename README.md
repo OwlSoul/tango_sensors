@@ -4,6 +4,8 @@ APK File Link:
 
 https://github.com/YuryXW/tango_sensors/blob/master/release/tango_sensors-debug.apk?raw=true
 
+***
+
 Application to publish data from Google Tango device to ROS (Robotic Operating System).
 Was designed and is guaranteed to run only on Yellowstone tablet with Kitkat Android.
 
