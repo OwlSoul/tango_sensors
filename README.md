@@ -1,6 +1,4 @@
-# tango_sensors
-
-## ROS node for Android (Yellowstone tablet)
+# Tango ROS node for Android (Yellowstone tablet)
 
 Application to publish data from Google Tango device to ROS (Robotic Operating System).
 Was designed and is guaranteed to run only on Yellowstone tablet with Kitkat Android.
