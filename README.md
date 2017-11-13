@@ -38,7 +38,7 @@ https://github.com/YuryXW/tango_sensors/blob/master/release/tango_sensors-debug.
 In case you want to assemble app by yourselves, go on a good and active weekend first
 to recharge your batteries. Creating ROS apps for Android may take all your sanity in one day.
   
-I do not own Google Tango on permanent basis, so this app can be considered "unmaintained". Application is provided AS IS with
+I do not own Google Tango on permanent basis, so this app can be considered "unmaintained", and thus will not be added to official ROS packages. Application is provided AS IS with
 no guarantees, and is not recommended for production usage. Feel free to use it for personal or academic purposes.
 
 Refer to wiki section for learning how to work with this application.
