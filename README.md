@@ -37,6 +37,6 @@ In case you want to assemble app by yourselves, go on a good and active weekend 
 to recharge your batteries. Creating ROS apps for Android may take all your sanity in one day.
   
 I do not own Google Tango on permanent basis, so this app can be considered "unmaintained". Application is provided AS IS with
-no guarantees, and is not recommended for production usage at all.
+no guarantees, and is not recommended for production usage. Feel free to use it for personal or academic purposes.
 
 Refer to wiki section for learning how to work with this application.
