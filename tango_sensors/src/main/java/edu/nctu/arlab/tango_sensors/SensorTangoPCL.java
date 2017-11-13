@@ -28,6 +28,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import sensor_msgs.PointField;
 import std_msgs.Header;
+import std_msgs.Time;
 
 import static android.content.ContentValues.TAG;
 
@@ -46,7 +47,7 @@ class SensorTangoPCL {
 
     //Parameters
     boolean enabled  = false;
-    int     sleep    = 50;
+    int     sleep    = 0;
     private final static int minSleep = 100;
 
     //ROS updates
@@ -112,13 +113,16 @@ class SensorTangoPCL {
             try {
                 if ((mPointCloudPublisher != null) && (mPointCloudData != null) &&
                         (!sending.get()) &&
-                        ((sleep > 0) || ((sleep == 0) && (changed.get())))) {
+                        (((sleep > 0) && (canSend.get())) || ((sleep == 0)))) {
                     sending.set(true);
+                    canSend.set(false);
+
+                    org.ros.message.Time t = node.getCurrentTime();
 
                     // TF2: "/tango_pose_pcl" related to "/tango_origin".
                     mTFTangoPosePCLHeader.setSeq(0);
                     mTFTangoPosePCLHeader.setFrameId("/"+ mTangoSensors.mNodeNamespace +"/"+ mTangoSensors.mOdomTF);
-                    mTFTangoPosePCLHeader.setStamp(node.getCurrentTime());
+                    mTFTangoPosePCLHeader.setStamp(t);
                     mTFTangoPosePCLTransform.setHeader(mTFTangoPosePCLHeader);
                     mTFTangoPosePCLTransform.setChildFrameId("/"+ mTangoSensors.mNodeNamespace +"/"+ mTangoSensors.mBaseLinkTF+"/"+"pcl");
                     mTFTangoPosePCLTranslate.setX(tx);
@@ -141,7 +145,7 @@ class SensorTangoPCL {
                     // TF2: "/tango_point_cloud" related to "/tango_pose_pcl"
                     mTFPointCloudHeader.setSeq(0);
                     mTFPointCloudHeader.setFrameId("/"+ mTangoSensors.mNodeNamespace +"/"+ mTangoSensors.mBaseLinkTF+"/"+"pcl");
-                    mTFPointCloudHeader.setStamp(node.getCurrentTime());
+                    mTFPointCloudHeader.setStamp(t);
                     mTFPointCloudTransform.setHeader(mTFPointCloudHeader);
                     mTFPointCloudTransform.setChildFrameId("/"+ mTangoSensors.mNodeNamespace +"/"+ mTangoSensors.mBaseLinkTF+"/"+"point_cloud");
                     mTFPointCloudTranslate.setX(mTangoSensors.tf2PTX);
@@ -162,7 +166,7 @@ class SensorTangoPCL {
                     mTransformBroadcaster.mTransformPublisher.publish(mTFPointCloudOrigin);
 
                     //Pose when point cloud was taken.
-                    mPosePCLHeader.setStamp(node.getCurrentTime());
+                    mPosePCLHeader.setStamp(t);
                     mPosePCLHeader.setSeq(++sequenceNumber);
                     mPosePCLHeader.setFrameId("/"+ mTangoSensors.mNodeNamespace +"/"+ mTangoSensors.mOdomTF);
                     mPosePCLTranslation.setX(tx);
@@ -179,7 +183,7 @@ class SensorTangoPCL {
                     mPosePCLPublisher.publish(mPosePCL);
 
                     // Compose the Point Cloud message. It's a big one.
-                    mPointCloudHeader.setStamp(node.getCurrentTime());
+                    mPointCloudHeader.setStamp(t);
                     mPointCloudHeader.setSeq(++sequenceNumber);
                     mPointCloudHeader.setFrameId("/"+ mTangoSensors.mNodeNamespace +"/"+ mTangoSensors.mBaseLinkTF+"/"+"point_cloud");
                     mPointCloud.setHeader(mPointCloudHeader);
@@ -240,6 +244,7 @@ class SensorTangoPCL {
 
             } catch (Exception e) {
                 Log.e(TAG, "exception", e);
+                sending.set(false);
             }
 
             changed.set(false);
@@ -252,15 +257,22 @@ class SensorTangoPCL {
             changed.set(false);
 
             if (sleep > 0) {
-                int iSleep = (sleep < minSleep) ? minSleep : sleep;
                 // Setting delay after sleep
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+                new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        int iSleep = (sleep < minSleep) ? minSleep : sleep;
+                        try {
+                            Thread.sleep(iSleep);
+                        } catch (Exception e) {
+                            Log.e(TAG, "Exception", e);
+                        }
                         canSend.set(true);
                     }
-                }, iSleep);
+                }).start();
+            }
+            else {
+                canSend.set(true);
             }
         }
     }
@@ -497,7 +509,38 @@ class SensorTangoPCL {
             DataSender dataSender = new DataSender();
             dataSender.execute();
         }
-    }
+
+        /*if ((sleep == 0) || ((sleep > 0) && (canSend.get()))) {
+            if (sleep > 0) {
+                if (canSend.get()) {
+                    new Thread(new DataSender2()).start();
+                    canSend.set(false);
+
+                    // Setting delay after sleep
+                    // Handlers are crashing the app for some wild reason now, weird.
+                    // Just creating a handler here will crash an app.
+                    //Handler handler = new Handler();
+
+                    // New workaround.
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            int iSleep = (sleep < minSleep) ? minSleep : sleep;
+                            try {
+                                Thread.sleep(iSleep);
+                            } catch (Exception e) {
+                                Log.e(TAG, "Exception", e);
+                            }
+                            canSend.set(true);
+                        }
+                    }).start();
+                }
+            } else {
+                new Thread(new DataSender2()).start();
+            }*/
+
+            changed.set(false);
+        }
 
 
     //--------------------------------- ROS: Update Parameters -----------------------------------//

@@ -915,6 +915,13 @@ public class TangoSensors extends RosActivity implements NodeMain {
                                 if (!mPointCloudSensor.enabled) {
                                     return;
                                 }
+
+                                synchronized (this) {
+                                    mPointCloudSensor.setValue(pointCloud,
+                                            mTangoPoseSensor.tx, mTangoPoseSensor.ty, mTangoPoseSensor.tz,
+                                            mTangoPoseSensor.ox, mTangoPoseSensor.oy, mTangoPoseSensor.oz, mTangoPoseSensor.ow);
+                                }
+
                                 // Getting the Range
                                 double rng = 0.0;
                                 for (int i=0;i<pointCloud.numPoints; i++){
@@ -930,11 +937,6 @@ public class TangoSensors extends RosActivity implements NodeMain {
                                 while (mPointCloudSensor.sending.get()) {
                                     sleep(1);
                                 }
-                                synchronized (this) {
-                                    mPointCloudSensor.setValue(pointCloud,
-                                            mTangoPoseSensor.tx, mTangoPoseSensor.ty, mTangoPoseSensor.tz,
-                                            mTangoPoseSensor.ox, mTangoPoseSensor.oy, mTangoPoseSensor.oz, mTangoPoseSensor.ow);
-                                    }
 
                                 mPointCloudSensor.changed.set(true);
                                 mPointCloudSensor.sendData();

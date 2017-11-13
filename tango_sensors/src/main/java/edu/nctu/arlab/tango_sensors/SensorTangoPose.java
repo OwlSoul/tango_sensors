@@ -39,7 +39,7 @@ class SensorTangoPose {
     float   ow        = 1.00f;
     // Parameters
     boolean enabled  = false;
-    int     sleep    = 50;
+    int     sleep    = 0;
     private static final int minSleep = 2;      //Minimal allowed sleep
 
     // ROS updates
@@ -363,17 +363,17 @@ class SensorTangoPose {
                             try {
                                 Thread.sleep(iSleep);
                             } catch (Exception e) {
-                                Log.e(TAG,"Exception",e);
+                                Log.e(TAG, "Exception", e);
                             }
                             canSend.set(true);
                         }
                     }).start();
-                } else {
-                    new Thread(new DataSender2()).start();
                 }
-
-                changed.set(false);
+            } else {
+                new Thread(new DataSender2()).start();
             }
+
+            changed.set(false);
         }
     }
 

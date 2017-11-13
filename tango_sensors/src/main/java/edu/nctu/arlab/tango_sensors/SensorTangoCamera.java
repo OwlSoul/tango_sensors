@@ -601,17 +601,17 @@ class SensorTangoCamera {
                             try {
                                 Thread.sleep(iSleep);
                             } catch (Exception e) {
-                                Log.e(TAG,"Exception",e);
+                                Log.e(TAG, "Exception", e);
                             }
                             canSend.set(true);
                         }
                     }).start();
-                } else {
-                    new Thread(new DataSender2()).start();
                 }
-
-                changed.set(false);
+            } else {
+                new Thread(new DataSender2()).start();
             }
+
+            changed.set(false);
         }
     }
 
