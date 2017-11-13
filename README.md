@@ -39,4 +39,4 @@ to recharge your batteries. Creating ROS apps for Android may take all your sani
 I do not own Google Tango on permanent basis, so this app can be considered "unmaintained". Application is provided AS IS with
 no guarantees, and is not recommended for production usage at all.
 
-Refer to wiki section to lear how to work with this application.
+Refer to wiki section for learning how to work with this application.
