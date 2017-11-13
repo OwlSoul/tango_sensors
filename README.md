@@ -20,7 +20,7 @@ Current acheived rates for message publishing are:
 
 Known bugs and limitations:
 - App will not tell you if it didn't connect to ROS master or not, use ROS tools to check this (technically a feature).
-- It is not adviseable to launch this app on startap immediately, it may crash. Wait until all your apps are started.
+- It is not adviseable to launch this app on startup immediately, it may crash. Wait until all your apps are started.
 - ROI (region of interest) is not supported for cameras.
 - Your Yellowstone tablet will become REALLY hot and will drain power pretty fast when you're using all four Tango
   related publishers at max speed. Interface also may become "a little bit" unresponsive, accept our apologies for that.
