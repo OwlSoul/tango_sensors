@@ -1,0 +1,1475 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/llRoot"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
+    <LinearLayout
+        android:id="@+id/llDummy"
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <ScrollView
+        android:id="@+id/swMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/llMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/llRow0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:id="@+id/llCell01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="vertical">
+
+
+                    <android.opengl.GLSurfaceView
+                        android:id="@+id/surfaceViewCameraColor"
+                        android:layout_width="match_parent"
+                        android:layout_height="128dp"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/textViewColorCameraLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.8"
+                        android:gravity="center_horizontal"
+                        android:text="Color Camera"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="131dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewColorCameraFPS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="FPS (Color) : 0"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewColorCameraRes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Res: 1024x768 "
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewColorCameraROI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="[300,300,1400,768]"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewColorCameraCompression"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="JPEG [80]"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewColorCameraCompressionLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Compression:"
+                            tools:ignore="HardcodedText" />
+
+                        <Spinner
+                            android:id="@+id/spinnerColorCameraCompression"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/image_compression" />
+
+                        <TextView
+                            android:id="@+id/textViewColorCameraModeLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mode:"
+                            tools:ignore="HardcodedText" />
+
+                        <Spinner
+                            android:id="@+id/spinnerColorCameraMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/image_mode" />
+
+                        <TextView
+                            android:id="@+id/textViewColorCameraResolutionLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Resolution:"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:baselineAligned="false">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textViewColorCameraWidthLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Width:"
+                                    android:textAlignment="textEnd"
+                                    tools:ignore="HardcodedText,NestedWeights" />
+
+                                <EditText
+                                    android:id="@+id/editTextColorCameraWidth"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:text="1024"
+                                    tools:ignore="HardcodedText,LabelFor" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textViewColorCameraHeightLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Height:"
+                                    android:textAlignment="textEnd"
+                                    tools:ignore="HardcodedText,NestedWeights" />
+
+                                <EditText
+                                    android:id="@+id/editTextColorCameraHeight"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:text="768"
+                                    tools:ignore="HardcodedText,LabelFor" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.6"
+                        tools:ignore="NestedWeights">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            tools:ignore="UselessParent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textViewColorCameraSleepLabel"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Sleep after send:"
+                                    tools:ignore="HardcodedText" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/imageViewColorCameraIndicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/circle_red"
+                                    tools:ignore="ContentDescription" />
+
+                                <EditText
+                                    android:id="@+id/editTextColorCameraSleep"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText,LabelFor" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/textViewColorCameraQualityLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Quality:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextColorCameraQuality"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:inputType="numberDecimal"
+                                android:text="80"
+                                tools:ignore="HardcodedText,LabelFor" />
+
+                            <Button
+                                android:id="@+id/buttonColorCameraApply"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Apply"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/textViewColorCameraEmpty1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/textViewColorCameraEmpty2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <ToggleButton
+                                android:id="@+id/toggleButtonColorCameraEnabled"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ToggleButton"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell03"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="131dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewFisheyeCameraFPS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="FPS (Fisheye) : 0"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewFisheyeCameraRes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Res: 1024x768 "
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewFisheyeCameraROI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="[300,300,1400,768]"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewFisheyeCameraCompression"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="JPEG [80]"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewFisheyeCameraCompressionLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Compression:"
+                            tools:ignore="HardcodedText" />
+
+                        <Spinner
+                            android:id="@+id/spinnerFisheyeCameraCompression"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/image_compression" />
+
+                        <TextView
+                            android:id="@+id/textViewFisheyeModeModeLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Mode:"
+                            tools:ignore="HardcodedText" />
+
+                        <Spinner
+                            android:id="@+id/spinnerFisheyeCameraMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/image_mode" />
+
+                        <TextView
+                            android:id="@+id/textViewFisheyeCameraResolution"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Resolution:"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:baselineAligned="false">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textViewFisheyeCameraWidthLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Width:"
+                                    android:textAlignment="textEnd"
+                                    tools:ignore="HardcodedText,NestedWeights" />
+
+                                <EditText
+                                    android:id="@+id/editTextFisheyeCameraWidth"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:text="640"
+                                    tools:ignore="HardcodedText,LabelFor" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textViewFisheyeCameraHeightLabel"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Height:"
+                                    android:textAlignment="textEnd"
+                                    tools:ignore="HardcodedText,NestedWeights" />
+
+                                <EditText
+                                    android:id="@+id/editTextFisheyeCameraHeight"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:text="480"
+                                    tools:ignore="HardcodedText,LabelFor" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.6"
+                        tools:ignore="NestedWeights">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            tools:ignore="UselessParent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textViewFisheyeCameraSleepLabel"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Sleep after send:"
+                                    tools:ignore="HardcodedText" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:id="@+id/imageViewFisheyeCameraIndicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/circle_red"
+                                    tools:ignore="ContentDescription" />
+
+                                <EditText
+                                    android:id="@+id/editTextFisheyeCameraSleep"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="10"
+                                    android:inputType="numberDecimal"
+                                    android:text="0"
+                                    tools:ignore="HardcodedText,LabelFor" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/textViewFisheyeCameraQualityLabel"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Quality:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextFisheyeCameraQuality"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ems="10"
+                                android:inputType="numberDecimal"
+                                android:text="80"
+                                tools:ignore="HardcodedText,LabelFor" />
+
+                            <Button
+                                android:id="@+id/buttonFisheyeCameraApply"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Apply"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/textViewFisheyeCameraEmpty1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <TextView
+                                android:id="@+id/textViewFisheyeCameraEmpty2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <ToggleButton
+                                android:id="@+id/toggleButtonFisheyeCameraEnabled"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ToggleButton"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell04"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="vertical">
+
+
+                    <android.opengl.GLSurfaceView
+                        android:id="@+id/surfaceViewCameraFisheye"
+                        android:layout_width="match_parent"
+                        android:layout_height="128dp"
+                        android:layout_weight="1"
+                        tools:ignore="NestedWeights" />
+
+                    <TextView
+                        android:id="@+id/textViewFisheyeCameraLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.8"
+                        android:gravity="center_horizontal"
+                        android:text="Fisheye Camera"
+                        tools:ignore="HardcodedText" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRow1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:id="@+id/llCell11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.85"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/textViewTangoPose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TANGO: Pose"
+                            android:textColor="@android:color/holo_green_light"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseOrientation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Orientation"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseOX"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="X: 0.0000"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseOY"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Y: 0.0000"
+                            tools:ignore="HardcodedText,TooManyViews" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseOZ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Z: 0.0000"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseCos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="cos(θ/2): 0.0000"
+                            tools:ignore="HardcodedText" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewPoseEmpty"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseTranslation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Translation:"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseTX"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="X: 0.0000"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseTY"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Y: 0.0000"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPoseTZ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Z: 0.0000"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewPoseFreq"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.25"
+                            android:text="Sleep after send:"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageViewPose"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:src="@drawable/circle_red"
+                                tools:ignore="ContentDescription" />
+
+                            <EditText
+                                android:id="@+id/editTextPose"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberDecimal"
+                                android:text="100"
+                                tools:ignore="HardcodedText,LabelFor" />
+
+                        </LinearLayout>
+
+                        <ToggleButton
+                            android:id="@+id/toggleButtonPose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ToggleButton"
+                            tools:ignore="HardcodedText" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.35"
+                        android:orientation="vertical"
+                        tools:ignore="UselessLeaf" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.85"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/textViewTangoPointCloud"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TANGO: Point Cloud"
+                            android:textColor="@android:color/holo_green_light"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:id="@+id/textViewPointCloudPoints"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Points: 0"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.86"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewPointCloudFreq"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.25"
+                            android:text="Sleep after send:"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/imageViewPointCloud"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:src="@drawable/circle_red"
+                                tools:ignore="ContentDescription" />
+
+                            <EditText
+                                android:id="@+id/editTextPointCloud"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberDecimal"
+                                android:text="100"
+                                tools:ignore="HardcodedText,LabelFor" />
+
+                        </LinearLayout>
+
+                        <ToggleButton
+                            android:id="@+id/toggleButtonPointCloud"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ToggleButton"
+                            tools:ignore="HardcodedText" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.35"
+                        android:orientation="vertical"
+                        tools:ignore="UselessLeaf" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        tools:ignore="UselessParent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            tools:ignore="UselessLeaf">
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            tools:ignore="UselessLeaf">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRow2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:id="@+id/llCell21"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/textViewTransform"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Pose Transform"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewTTX"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="TX:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextTTX"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewTTY"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="TY: "
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextTTY"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewTTZ"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="TZ:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextTTZ"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            tools:ignore="NestedWeights">
+
+                            <TextView
+                                android:id="@+id/textViewTRX"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RX:"
+                                tools:ignore="HardcodedText,NestedWeights" />
+
+                            <EditText
+                                android:id="@+id/editTextTRX"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewTRY"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RY: "
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextTRY"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewTRZ"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RZ:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextTRZ"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewTRW"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RW:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextTRW"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="1.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/buttonTF1Default"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Default"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.6"
+                        android:orientation="vertical"
+                        tools:ignore="UselessLeaf" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights">
+
+                        <TextView
+                            android:id="@+id/textViewTransformPose"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="PCL Transform"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewPTX"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="TX:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextPTX"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewPTY"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="TY: "
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextPTY"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewPTZ"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="TZ:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextPTZ"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.00"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            tools:ignore="NestedWeights">
+
+                            <TextView
+                                android:id="@+id/textViewPRX"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RX:"
+                                tools:ignore="HardcodedText,NestedWeights" />
+
+                            <EditText
+                                android:id="@+id/editTextPRX"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.5"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewPRY"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RY: "
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextPRY"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.5"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewPRZ"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RZ:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextPRZ"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.5"
+                                tools:ignore="HardcodedText,LabelFor" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewPRW"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="RW:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextPRW"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="numberSigned|numberDecimal"
+                                android:text="0.5"
+                                tools:ignore="HardcodedText,LabelFor" />
+
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/buttonTF2Default"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Default"
+                            tools:ignore="HardcodedText" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.6"
+                        android:orientation="vertical"
+                        tools:ignore="UselessLeaf">
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell23"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.90"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights,UselessParent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewWorldTF"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2.7"
+                                android:text="World TF:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextWorldTF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:text="map"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewOdomTF"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2.7"
+                                android:text="Odometer TF:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextOdomTF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:text="tango_odom"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewBaseLinkTF"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2.7"
+                                android:text="BaseLink TF:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextBaseLinkTF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:text="tango_base"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textViewTangoColorCamTF"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2.7"
+                                android:text="Color Camera TF:"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/editTextTangoColorCamTF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:text="color_camera"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            tools:ignore="NestedWeights">
+
+                            <TextView
+                                android:id="@+id/textViewTangoFisheyeCamTF"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2.7"
+                                android:text="Fisheye Camera TF:"
+                                tools:ignore="HardcodedText,NestedWeights" />
+
+                            <EditText
+                                android:id="@+id/editTextTangoFisheyeCamTF"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:ems="10"
+                                android:inputType="text"
+                                android:text="fisheye_camera"
+                                tools:ignore="HardcodedText,LabelFor" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCell24"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.95"
+                    android:background="@drawable/rectangle_background"
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:orientation="vertical"
+                        tools:ignore="NestedWeights,UselessLeaf">
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/buttonTerminate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="onButtonExitClick"
+                            android:text="TERMINATE"
+                            tools:ignore="HardcodedText" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            tools:ignore="UselessLeaf">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

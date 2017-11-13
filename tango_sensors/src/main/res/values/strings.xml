@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TangoSensors</string>
+
+    <string-array name="image_compression">
+        <item>JPEG</item>
+    </string-array>
+
+    <string-array name="image_mode">
+        <item>RGBA_8888</item>
+    </string-array>
+
+</resources>

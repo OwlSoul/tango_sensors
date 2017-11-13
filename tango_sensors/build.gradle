@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+
+android {
+  compileSdkVersion 18
+  buildToolsVersion "25.0.2"
+  defaultConfig {
+    minSdkVersion 18
+    //noinspection OldTargetApi
+    targetSdkVersion 18
+    versionCode 1
+    versionName "1.0"
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+    compile('org.ros.android_core:android_honeycomb_mr2:[0.1,0.2)') {
+        exclude group: 'junit'
+        exclude group: 'xml-apis'
+    }
+
+    compile 'org.ros.rosjava_messages:std_msgs:[0.1,)'
+    compile 'org.ros.rosjava_messages:sensor_msgs:[0.1,)'
+    compile 'org.ros.rosjava_messages:diagnostic_msgs:[0.1,)'
+    compile 'org.ros.rosjava_messages:geometry_msgs:[0.1,)'
+    compile files('../app/libs/TangoSDK_Eisa_Java.jar')
+
+}
+ 

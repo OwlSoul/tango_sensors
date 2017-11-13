@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <ImageView
+        android:id="@+id/imageViewLauncher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_launcher"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/imageViewLauncher"
+        android:text="TangoSensors"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textViewROSMaster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ROS Master:"
+        android:layout_marginStart="13dp"
+        android:layout_above="@+id/textViewAppName"
+        android:layout_toEndOf="@+id/imageViewMasterStatus"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/imageViewMasterStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/circle_yellow"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/textViewAppName"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewMemory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Memory: 0/0"
+        android:layout_alignBottom="@+id/textViewAppName"
+        android:layout_toStartOf="@+id/buttonResetTangoEX"
+        android:layout_marginEnd="11dp"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/buttonResetTangoEX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewAppName"
+        android:layout_alignBottom="@+id/textViewAppName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="137dp"
+        android:onClick="onButtonResetTangoClick"
+        android:text="RESET TANGO"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textViewRosTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Time: 0"
+        android:layout_below="@+id/textViewNodeName"
+        android:layout_alignStart="@+id/textViewNodeName"
+        tools:ignore="HardcodedText" />
+
+    <CheckBox
+        android:id="@+id/checkBoxKeepAwake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:text="Keep Awake"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textViewNodeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Node: tango_sensors_node | ns: tango_sensors"
+        android:layout_below="@+id/textViewROSMaster"
+        android:layout_alignStart="@+id/textViewROSMaster"
+        tools:ignore="HardcodedText" />
+
+</RelativeLayout>

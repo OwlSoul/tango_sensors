@@ -1,0 +1,9 @@
+#GIT ignore file for tango_sensors
+
+.git/
+.gradle/
+.idea/
+build/
+local.properties
+tango_sensors/build
+

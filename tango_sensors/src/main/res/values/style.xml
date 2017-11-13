@@ -1,0 +1,4 @@
+<resources>
+    <style name="mapViewStyle" parent="@android:style/Theme.Black">
+    </style>
+</resources>
