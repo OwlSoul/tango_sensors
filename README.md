@@ -26,7 +26,7 @@ Known bugs and limitations:
 - ROI (region of interest) is not supported for cameras.
 - Your Yellowstone tablet will become REALLY hot and will drain power pretty fast when you're using all four Tango
   related publishers at max speed. Interface also may become "a little bit" unresponsive, accept our apologies for that.
-- There's a chance Tango will not start automatically in case it crashed before, switching something (like pose or 
+- There's a really small chance Tango will not start automatically in case it crashed before, switching something (like pose or 
   point cloud) on and off will fix this.
 - Avoid low battery level (network operations will become slow and buggy), it's adviseable that if you use this app on your 
   robot, you power Yellowstone tablet off somehow with at least 2 AMPS of power.
