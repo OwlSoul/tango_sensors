@@ -9,7 +9,7 @@ No IMU/Navigation/Sensor e.t.c data is being published.
 
 App is designed to provide data as fast as possible, which creates a bottleneck when using WiFi connection.
 Limiting publish rate for images and point cloud in case you use Wireless connection (can be done in app dashboard),
-or using wired connection to ROS master (USB Tethering) is recommended.
+or using wired connection to ROS master (USB Tethering) is recommended. Note that Point Cloud message is the most resource-consuming, taking up to 5-6 MB/s when there's a lot of points. Images at high resolution will also take significant part of your bandwidth. Play up with settings to reduce publish rate and/or image size and compression to reduce bottleneck effect.
 
 Current acheived rates for message publishing are:
 - Up to 100 HZ for Pose (technical limit of Tango pose estimation).
