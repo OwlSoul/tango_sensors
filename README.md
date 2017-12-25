@@ -1,5 +1,7 @@
 # Tango ROS node for Android (Yellowstone tablet)
 
+**12-26-2017 Update**: Google added another gravestone on their "closed projects cemetery", and decided to ditch Tango whatsoever. Since only three devices were available for technology (Yellowstone tablet and two phones from Lenovo and Asus), this leaves them without any support. Eventually, in 3 to 8 years, they all will break down. Thus, this project will not evolve any further. Google itself shifted focus to ArCore, which still will provide some AR features, but no more point cloud calculation bundled together with simply amazing pose estimation and area learning to make the day robots destroy humanity closer.
+
 APK: https://github.com/YuryXW/tango_sensors/blob/master/release/tango_sensors-debug.apk?raw=true
 
 Application to publish data from Google Tango device to ROS (Robotic Operating System).
